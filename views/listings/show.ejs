@@ -57,7 +57,7 @@
                     </div>
                 </div>
 
-                <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
+                <% if(currUser && listing.owner && currUser._id.equals(listing.owner._id)) { %>
                     <div class="d-flex justify-content-center gap-3 mt-4 mb-4">
                         <form action="/listings/<%= listing._id %>/edit" method="get">
                             <button type="submit" class="btn btn-outline-primary shadow-lg px-4">
