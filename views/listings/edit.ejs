@@ -1,0 +1,95 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg p-4 rounded">
+                    <h3 class="text-center fw-bold text-danger">✏️ Edit Your Listing</h3>
+                    <form action="/listings/<%= listing._id %>?_method=PUT" method="post" novalidate
+                        class="needs-validation" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="title" class="form-label fw-semibold">Title</label>
+                            <input type="text" name="listing[title]" value="<%= listing.title %>" id="title"
+                                class="form-control" required>
+                            <div class="valid-feedback">Title looks good!</div>
+                            <div class="invalid-feedback">Please enter a title</div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label fw-semibold">Description</label>
+                            <textarea name="listing[description]" id="description" class="form-control" rows="3"
+                                required><%= listing.description %></textarea>
+                            <div class="valid-feedback">Description looks good!</div>
+                            <div class="invalid-feedback">Please enter a description</div>
+                        </div>
+
+
+
+                        <div class="card mb-3 shadow-sm border-primary" style="border-radius: 16px;">
+                            <img src="<%= listing.image.url %>" class="card-img-top img-fluid"
+                                style="width: 100%; max-height: 300px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label fw-semibold">Upload New Image (if you want to change
+                                it) </label>
+                            <input type="file" name="listing[image]" id="image" class="form-control">
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label for="price" class="form-label fw-semibold">Price (₹/night)</label>
+                                <input name="listing[price]" id="price" value="<%= listing.price %>" type="number"
+                                    class="form-control" required min="1000">
+                                <div class="valid-feedback">Price is valid.</div>
+                                <div class="invalid-feedback">Price must be at least ₹1000</div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <label for="country" class="form-label fw-semibold">Country</label>
+                                <select class="form-select" id="country" name="listing[country]" required>
+                                    <option value="">Select a country</option>
+                                    <option value="United States" <%=listing.country==='United States' ? 'selected' : ''
+                                        %>>United States</option>
+                                    <option value="Canada" <%=listing.country==='Canada' ? 'selected' : '' %>>Canada
+                                    </option>
+                                    <option value="United Kingdom" <%=listing.country==='United Kingdom' ? 'selected'
+                                        : '' %>>United Kingdom</option>
+                                    <option value="Australia" <%=listing.country==='Australia' ? 'selected' : '' %>
+                                        >Australia</option>
+                                    <option value="India" <%=listing.country==='India' ? 'selected' : '' %>>India
+                                    </option>
+                                    <option value="Germany" <%=listing.country==='Germany' ? 'selected' : '' %>>Germany
+                                    </option>
+                                    <option value="France" <%=listing.country==='France' ? 'selected' : '' %>>France
+                                    </option>
+                                    <option value="Japan" <%=listing.country==='Japan' ? 'selected' : '' %>>Japan
+                                    </option>
+                                    <option value="China" <%=listing.country==='China' ? 'selected' : '' %>>China
+                                    </option>
+                                    <option value="Brazil" <%=listing.country==='Brazil' ? 'selected' : '' %>>Brazil
+                                    </option>
+                                </select>
+                                <div class="valid-feedback">Country looks good!</div>
+                                <div class="invalid-feedback">Please select a country</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="location" class="form-label fw-semibold">Location</label>
+                            <input type="text" id="location" name="listing[location]" value="<%= listing.location %>"
+                                class="form-control" required>
+                            <div class="valid-feedback">Location looks good!</div>
+                            <div class="invalid-feedback">Please enter a location</div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success btn-lg shadow-lg px-5">
+                                ✅ Update Listing
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>

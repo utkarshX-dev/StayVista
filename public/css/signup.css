@@ -1,0 +1,32 @@
+.form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.form-label {
+  transition: color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+h1 {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+h1:hover {
+  transform: scale(1.02);
+}

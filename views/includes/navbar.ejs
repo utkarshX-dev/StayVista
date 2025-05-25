@@ -1,0 +1,64 @@
+<style>
+  .btn-search {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 0.9rem;
+    padding: 0 1rem 0 1rem;
+  }
+
+  .btn-search:hover {
+    color: white;
+    background-color: #c82333;
+  }
+  .btn-search i{
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  .searchInput{
+    border-radius: 1rem;
+    padding: 0.5rem 3rem;
+    font-size: 1rem;
+  }
+</style>
+
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand me-4" href="/listings">
+      <img src="/images/transparent.ico" id="icon" alt="Logo">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <div class="navbar-nav me-auto gap-3">
+        <a class="nav-link" href="/listings"><i class="fas fa-list me-2"></i>Explore Listings</a>
+      </div>
+      <div class="mx-auto">
+        <form class="d-flex" role="search">
+          <input class="form-control me-2 searchInput" type="search" placeholder="Search destinations"/>
+          <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-3">
+        <a class="nav-link" href="/listings/new"><i class="fas fa-plus-circle me-2"></i>Add New StayVista</a>
+        <% if (!currUser) { %>
+          <div class="d-flex gap-2">
+            <a class="btn btn-signup" href="/signup">
+              <i class="fas fa-user-plus me-2"></i><strong>Sign Up</strong>
+            </a>
+            <a class="btn btn-login" href="/login">
+              <i class="fas fa-sign-in-alt me-2"></i><strong>Login</strong>
+            </a>
+          </div>
+          <% } else { %>
+            <a class="btn btn-logout" href="/logout">
+              <i class="fas fa-sign-out-alt me-2"></i>Logout
+            </a>
+            <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
