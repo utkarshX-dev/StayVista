@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 const initdata = require("./data.js");
 const Listing = require("../models/listing.js");
+if (process.env.NODE_ENV !== "production") {
+  require('dotenv').config();
+} 
+
+const dbUrl = process.env.ATLASDB_URL;
 
 main()
   .then(() => {
@@ -9,7 +14,7 @@ main()
   .catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/stayvista");
+  await mongoose.connect(dbUrl);
 }
 
 const initdb = async () => {
