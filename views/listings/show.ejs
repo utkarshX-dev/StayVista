@@ -30,13 +30,15 @@
                                     <div class="text-muted small">
                                         <i class="fas fa-user me-2"></i>
                                         Username : <i>
-                                            <%= listing.owner.username %>
+                                            <%= listing.owner ? listing.owner.username : "Anonymous" %>
                                         </i>
                                     </div>
                                     <div class="text-muted small">
                                         <i class="fas fa-envelope me-2"></i>
                                         Email : <i>
-                                            <%= listing.owner.email %>
+                                            Email : <i>
+                                                <%= listing.owner ? listing.owner.email : "anonymous@gmail.com" %>
+                                            </i>
                                         </i>
                                     </div>
                                 </div>
